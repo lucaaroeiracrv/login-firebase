@@ -6,7 +6,8 @@ import Button from '../components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../services/firebase';  // Certifique-se de importar o auth corretamente
+import { auth } from '../services/firebase';
+import styles from '../styles/signUpStyles';
 import { RootStackParamList } from '../../types';
 
 type SignUpScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignUpScreen'>;
@@ -53,28 +54,5 @@ const SignUpScreen: React.FC = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    padding: 20, 
-    backgroundColor: '#d3d0cc',
-},
-title: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 20,
-    color: '#3D3D3DFF',
-  },
-  backButton: { 
-    marginTop: 20,
-     alignItems: 'center' 
-    },
-  backButtonText: { 
-    color: '#6200EE',
-    fontWeight: 'bold',
-},
-});
 
 export default SignUpScreen;
