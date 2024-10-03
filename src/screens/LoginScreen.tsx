@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Alert, TouchableOpacity, Text } from 'react-native';
-import { Title } from 'react-native-paper';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { Title, Snackbar } from 'react-native-paper';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { useNavigation } from '@react-navigation/native';
@@ -8,7 +8,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../services/firebase';  
 import styles from '../styles/loginStyles';
-import { RootStackParamList } from '../../types';  // Importe os tipos
+import { RootStackParamList } from '../../types'; 
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -16,17 +16,24 @@ const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigation = useNavigation<LoginScreenNavigationProp>();
+  const [snackbarVisible, setSnackbarVisible] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState<string>('');
 
   const checkRecord = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('Usuário logado:', user.email);
-        Alert.alert('Sucesso', 'Login efetuado com sucesso!');
+        setSnackbarMessage('Login efetuado com sucesso!');
+        setSnackbarVisible(true);
+        setTimeout(() => {
+          navigation.navigate('Home'); // Redireciona após o Snackbar ser exibido
+        }, 3000); // Aguarda 3 segundos antes de redirecionar
       })
       .catch((error) => {
-        console.error('Erro de login:', error.code, error.message);
-        Alert.alert('Erro', `Falha no login: ${error.message}`);
+        console.log('Erro de login: Email ou senha inválidos\nError code', error.code);
+        setSnackbarMessage(`Falha no login: ${error.message}`);
+        setSnackbarVisible(true);
       });
   };
 
@@ -50,6 +57,14 @@ const LoginScreen: React.FC = () => {
           Don't have an account? <Text style={styles.signUpLink}>Sign up</Text>
         </Text>
       </TouchableOpacity>
+      {/* <Snackbar
+        visible={snackbarVisible}
+        onDismiss={() => setSnackbarVisible(false)}
+        duration={3000}  
+        style={styles.snackbar}
+        >
+          {snackbarMessage}
+      </Snackbar> */}
     </View>
   );
 };
