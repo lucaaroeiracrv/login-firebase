@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { red100 } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +11,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginBottom: 20,
-    color :  '#3D3D3DFF',
+    color: '#3D3D3DFF',
+  },
+  signUpText: {
+    textAlign: 'center',
+    color: '#808080',
+    marginTop: 20,
+  },
+  signUpLink: {
+    color: '#6200EE',
+    fontWeight: 'bold',
   },
 });
 
