@@ -11,7 +11,7 @@ const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const chackRecord = () => {
+  const checkRecord = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -38,7 +38,7 @@ const LoginScreen: React.FC = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button onPress={chackRecord} title="Entrar" />
+      <Button onPress={checkRecord} title="Entrar" />
     </View>
   );
 };
