@@ -27,8 +27,8 @@ const LoginScreen: React.FC = () => {
         setSnackbarMessage('Login efetuado com sucesso!');
         setSnackbarVisible(true);
         setTimeout(() => {
-          navigation.navigate('Home'); // Redireciona após o Snackbar ser exibido
-        }, 3000); // Aguarda 3 segundos antes de redirecionar
+          navigation.replace('Home'); 
+        }, 2000);
       })
       .catch((error) => {
         console.log('Erro de login: Email ou senha inválidos\nError code', error.code);
@@ -57,14 +57,14 @@ const LoginScreen: React.FC = () => {
           Don't have an account? <Text style={styles.signUpLink}>Sign up</Text>
         </Text>
       </TouchableOpacity>
-      {/* <Snackbar
+      <Snackbar
         visible={snackbarVisible}
         onDismiss={() => setSnackbarVisible(false)}
-        duration={3000}  
+        duration={2000}  
         style={styles.snackbar}
         >
           {snackbarMessage}
-      </Snackbar> */}
+      </Snackbar>
     </View>
   );
 };

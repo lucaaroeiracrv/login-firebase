@@ -13,6 +13,14 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       color: '#3D3D3DFF',
     },
+    input: {
+      borderWidth: 1,
+      borderColor: '#ccc',
+      padding: 10,
+      borderRadius: 4,
+      marginBottom: 12,
+      fontSize: 16,
+    },
     backButton: { 
       marginTop: 20,
        alignItems: 'center' 
