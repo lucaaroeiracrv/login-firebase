@@ -103,5 +103,43 @@ This project is a simple login and registration screen using **React Native**, *
 
 ---
 
+### 🔄 **Detailed Login Flow Using Firebase Auth & Firestore**
+
+#### 1. **User Registration** 🛠️
+- **Step 1**: The user inputs their **email**, **password**, **full name**, and **date of birth** in the registration form.
+- **Step 2**: Firebase **Authentication** handles the creation of a new user account using the provided **email** and **password**.
+  - If the registration is successful, Firebase creates a unique user ID (UID) for the new user.
+  - This step ensures secure account management and password encryption.
+- **Step 3**: Once the account is created, the app automatically stores the additional user data (full name and date of birth) in **Firestore** under the newly created UID.
+  - **Firestore** is used to store and organize user data in a structured format.
+
+#### 2. **User Login** 🔑
+- **Step 1**: The user inputs their **email** and **password** to log in.
+- **Step 2**: Firebase **Authentication** verifies the credentials provided. 
+  - If the credentials match an existing user, Firebase returns the user object.
+  - If not, an error is displayed (e.g., "Invalid email or password").
+- **Step 3**: Once logged in, the app retrieves the user's additional information (e.g., full name, date of birth) from **Firestore** using the user's UID.
+
+---
+
+### 🔧 **Firebase Services Overview**
+
+1. **Firebase Authentication** 🔐:
+   - **Purpose**: Provides a secure, scalable authentication mechanism.
+   - **Key Features**:
+     - Supports multiple sign-in methods (email/password, Google, etc.).
+     - Handles password encryption and security.
+     - Easy integration with Firebase services for managing user sessions.
+   - **Usage**: In this app, Firebase **Auth** handles both the registration of new users and the authentication of returning users.
+
+2. **Firestore** 📂:
+   - **Purpose**: A NoSQL cloud database for storing and syncing data in real-time.
+   - **Key Features**:
+     - Stores structured data as documents within collections.
+     - Provides real-time data syncing and offline support.
+     - Easily integrates with Firebase Authentication to associate user data with their UID.
+   - **Usage**: In this app, Firestore stores additional user information (e.g., full name, date of birth) after registration. Upon login, it retrieves this data for a personalized experience.
+
+
 ### 🎉 **Conclusion**
 With Firebase's robust services for authentication and real-time data management, this app provides a simple and efficient way to manage user login and registration. Enjoy coding and building more features on top of this base!
