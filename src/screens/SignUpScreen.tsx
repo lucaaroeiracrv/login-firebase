@@ -33,16 +33,19 @@ const SignUpScreen: React.FC = () => {
      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
      const user = userCredential.user;
 
-     await setDoc(doc(db, 'users', user.uid),{
-       name: name,
-       email: email,
-       birthDate:'',
-       createdAt: new Date()
-     });
+     await setDoc(doc(db, 'users', user.uid), {
+      name: name,
+      email: email,
+      birthDate: birthDate,
+    });
 
-      console.log('Conta criada com sucesso:', user.email);
-      Alert.alert('Sucesso', 'Conta criada com sucesso!');
-      navigation.replace('Login'); 
+     Alert.alert('Sucesso', 'Conta criada com sucesso!', [
+      {
+        text: 'OK',
+        onPress: () => navigation.replace('Login')
+      }
+    ]);
+    
 
     } catch (error: any) {
       console.error('Erro ao criar conta:', error.code || 'Código desconhecido', error.message || 'Mensagem desconhecida');
