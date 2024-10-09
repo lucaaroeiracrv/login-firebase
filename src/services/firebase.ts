@@ -2,6 +2,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { getReactNativePersistence, initializeAuth } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,3 +26,9 @@ export const auth = getAuth(app);
 
   // Exporta a instância de Firestore
 export const db = getFirestore(app);
+
+/*Inicializa a autenticação com persistência usando AsyncStorage
+export const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage)
+});
+*/

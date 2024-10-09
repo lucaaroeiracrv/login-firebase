@@ -5,9 +5,9 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-import { RootStackParamList } from './types';  // Importe os tipos
+import { RootStackParamList } from './types'; 
 
-const Stack = createStackNavigator<RootStackParamList>();  // Tipar o Stack
+const Stack = createStackNavigator<RootStackParamList>(); 
 
 export default function App() {
   return (
