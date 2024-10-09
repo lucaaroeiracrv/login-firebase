@@ -27,30 +27,19 @@ const LoginScreen: React.FC = () => {
         ]);
       })
       .catch((error) => {
-        console.log('Erro de login: Email ou senha inválidos\nError code', error.code);
-        Alert.alert('Erro', `Falha no login: ${error.message}`);
+        console.log('Erro', `Falha no login: ${error.message}`);
+        Alert.alert(`Email ou senha inválidos\n\nError code: ${error.code}`);
       });
   };
 
   return (
     <View style={styles.container}>
       <Title style={styles.title}>Login</Title>
-      <Input
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <Input
-        placeholder="Senha"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+      <Input placeholder="Email"value={email} onChangeText={setEmail}/>
+      <Input placeholder="Senha" value={password} onChangeText={setPassword} secureTextEntry/>
       <Button onPress={checkRecord} title="Entrar" />
       <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
-        <Text style={styles.signUpText}>
-          Don't have an account? <Text style={styles.signUpLink}>Sign up</Text>
-        </Text>
+        <Text style={styles.signUpText}> Don't have an account? <Text style={styles.signUpLink}>Sign up</Text> </Text>
       </TouchableOpacity>
     </View>
   );

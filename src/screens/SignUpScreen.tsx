@@ -60,13 +60,8 @@ const SignUpScreen: React.FC = () => {
       <Input placeholder="Email" value={email} onChangeText={setEmail} />
       <Input placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
       <Input placeholder="Repeat Password" value={repeatPassword} onChangeText={setRepeatPassword} secureTextEntry />
-      <MaskedInput
-        placeholder="Birth Date"
-        value={birthDate}
-        onChangeText={setBirthDate}
-      /> 
+      <MaskedInput placeholder="Birth Date" value={birthDate} onChangeText={setBirthDate}/> 
       <Button title="Create Account" onPress={handleCreateAccount} />
-
       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
         <Text style={styles.backButtonText}>← Back to login</Text>
       </TouchableOpacity>
