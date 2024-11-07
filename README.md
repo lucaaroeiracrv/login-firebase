@@ -2,8 +2,6 @@
 
 ### 📱 **Project Overview**
 This project is a simple login and registration screen using **React Native**, **TypeScript**, and **Firebase Authentication**. It allows users to create an account, log in using their email and password, and store additional user data (full name and date of birth) in **Firestore**.
-
-### **Integrantes**
       
 
 ### 🚀 **Technologies Used**
